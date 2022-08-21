@@ -8,8 +8,20 @@ export default function RouteWrapper({
     const loading = false;
     const signed = false;
 
-    //if(loading){
-    //if(signed)
+    if(loading){
+        return(
+            <div>
+
+            </div>
+        )
+    }
+
+    if(!signed && isPrivate){
+        return <Redirect to="/"/>
+    }
+    if(signed && !isPrivate){
+        return <Redirect to="/dashboard"/>
+    }
     
     return(
         <Route
