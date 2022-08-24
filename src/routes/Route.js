@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { AuthContext } from '../pages/contexts/auth';
+import { AuthContext } from '../contexts/auth';
 
 export default function RouteWrapper({
     component: Component,

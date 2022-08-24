@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import firebase from "../../services/firebaseConnection";
+import firebase from "../services/firebaseConnection";
 
 export const AuthContext = createContext({});
 
@@ -22,11 +22,12 @@ function AuthProvider({children}){
         loadStorage();
     }, [])
 
+    //funcao pra salvar o item no localStorage
     function storageUser(data){
         localStorage.setItem('SistemaUser', JSON.stringify(data));
     }
     async function signUp(nome, email, senha){
-        setLoadingAuth(true);
+        setLoadingAuth(true); //'tem alguem tentando cadastrar/logar'
         //criando usuario
         await firebase.auth().createUserWithEmailAndPassword(email, senha)
         .then(async(value)=>{
@@ -56,7 +57,7 @@ function AuthProvider({children}){
             setLoadingAuth(false);
         })
     }
-
+    
     return(
         //listando em value={} todas as variaveis que serao compartilhadas pelo AuthContext
         <AuthContext.Provider value={{signed: !!user, user, loading, signUp}}>

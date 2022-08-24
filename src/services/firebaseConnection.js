@@ -1,12 +1,15 @@
 import firebase from 'firebase/app';
 import 'firebase/auth'
+import 'firebase/firestore'
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.2/firebase-app.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
+  console.log("ENTROU")
+
+  let firebaseConfig = {
     apiKey: "AIzaSyACzKtnw8yWNlrjZH1NdLxl5suHfqLJZ4Y",
     authDomain: "demand-system.firebaseapp.com",
     projectId: "demand-system",
@@ -17,7 +20,7 @@ const firebaseConfig = {
 };
   // Initialize Firebase
 if(!firebase.apps.length){
-      const app = initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig);
 }
 
 export default firebase;
