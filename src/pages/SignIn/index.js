@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { AuthContext } from '../../contexts/auth';
 import { Link } from 'react-router-dom';
 import './signin.css'
 import logo from '../../assets/logo.png';
@@ -7,9 +8,17 @@ function SignIn(){
     const [ email, setEmail ] = useState('')
     const [ senha, setSenha ] = useState('')
 
+    const { signIn } = useContext(AuthContext);
+
     function handleSubmit(e){
         e.preventDefault(); //pra não atualizar a pagina
-        alert('CLICOU');
+        
+        if(email !== '' && senha !== ''){
+            signIn(email, senha)
+        }
+        else{
+            alert("Preencha todos os campos")
+        }
     }
 
     return(
